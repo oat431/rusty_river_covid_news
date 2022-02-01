@@ -1,6 +1,8 @@
 # rusty_river_project
-
-Our group member
+- notification
+- provider
+- url_launcher (maybe?)
+- http
 
 ## team memebers 🌿
 | No. | Name | Student ID | Github Account |
