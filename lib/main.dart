@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rusty_river_project/screen/home.dart';
+import 'package:rusty_river_project/router/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
-      home: const Home(),
+      routes: AppRouter.initRouter() ,
+      initialRoute: "/",
     );
   }
 }

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:rusty_river_project/component/rr_bottom_app_bar.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class CovidStatistic extends StatefulWidget {
+  const CovidStatistic({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  _CovidStatisticState createState() => _CovidStatisticState();
 }
 
-class _HomeState extends State<Home> {
+class _CovidStatisticState extends State<CovidStatistic> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home Page"),
+        title: const Text("Covid Status"),
       ),
       body: Container(),
       bottomNavigationBar: const RustyRiverBottomBar(),
