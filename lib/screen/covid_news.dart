@@ -17,11 +17,11 @@ class _CovidNewsState extends State<CovidNews> {
   late final CovidNewsApi covidNewsApi = CovidNewsApi();
   late List<CovidArticles> covidArticles = [];
 
-  Future<String?> getAllCovidArticle() async {
-    print("calling");
+  Future<List<CovidArticles>> getAllCovidArticle() async {
     var response = await covidNewsApi.getCovidNews();
     List res = json.decode(response.body)["articles"];
     covidArticles = res.map((covidArticles) => CovidArticles.fromJson(covidArticles)).toList();
+    return covidArticles;
   }
 
   @override
@@ -37,20 +37,46 @@ class _CovidNewsState extends State<CovidNews> {
       appBar: AppBar(
         title: const Text("Covid News"),
       ),
-      body: ListView.builder(
-        itemCount: covidArticles.length,
-        itemBuilder: (context,index){
-          final item = covidArticles[index];
-          return MyBox(
-            imageUrl: item.urlToImage,
-            title: item.title,
-            detail: item.description,
-            subtitle: item.source,
-            url: item.url,
-          );
-        },
-      ),
+      body: FutureBuilder<List<CovidArticles>>(
+          future: getAllCovidArticle(),
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return const Center(child: Text("Something wrong on our network."));
+            } else if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: covidArticles.length,
+                itemBuilder: (context,index){
+                  final item = covidArticles[index];
+                  return MyBox(
+                    imageUrl: item.urlToImage,
+                    title: item.title,
+                    detail: item.description,
+                    subtitle: item.source,
+                    url: item.url,
+                  );
+                },
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          }),
       bottomNavigationBar: const RustyRiverBottomBar(),
     );
   }
 }
+
+// body: ListView.builder(
+//   itemCount: covidArticles.length,
+//   itemBuilder: (context,index){
+//     final item = covidArticles[index];
+//     return MyBox(
+//       imageUrl: item.urlToImage,
+//       title: item.title,
+//       detail: item.description,
+//       subtitle: item.source,
+//       url: item.url,
+//     );
+//   },
+// ),
