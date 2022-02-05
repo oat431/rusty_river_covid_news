@@ -66,17 +66,3 @@ class _CovidNewsState extends State<CovidNews> {
     );
   }
 }
-
-// body: ListView.builder(
-//   itemCount: covidArticles.length,
-//   itemBuilder: (context,index){
-//     final item = covidArticles[index];
-//     return MyBox(
-//       imageUrl: item.urlToImage,
-//       title: item.title,
-//       detail: item.description,
-//       subtitle: item.source,
-//       url: item.url,
-//     );
-//   },
-// ),

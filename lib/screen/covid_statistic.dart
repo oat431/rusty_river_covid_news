@@ -38,7 +38,33 @@ class _CovidStatisticState extends State<CovidStatistic> {
       appBar: AppBar(
         title: const Text("Covid Status"),
       ),
-      body: Container(),
+      body: FutureBuilder<List<CovidCountry>>(
+          future: getAllCovidStatus(),
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return const Center(child: Text("There something error with our network."));
+            } else if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: covidCountry.length,
+                itemBuilder: (context, i) {
+                  final item = covidCountry[i];
+                  final code = item.countryCode;
+                  return ListTile(
+                    leading: Image.network("https://flagcdn.com/w320/${code?.toLowerCase()}.png",width: 50,height: 50,),
+                    title: Text("${item.country}"),
+                    subtitle: Text("All case : ${item.totalConfirmed}"),
+                    trailing: Text("today case : ${item.newConfirmed}"),
+                    style: ListTileStyle.drawer,
+                  );
+                },
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
+      ),
       bottomNavigationBar: const RustyRiverBottomBar(),
     );
   }
