@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:rusty_river_project/component/rr_show_country_info.dart';
 import 'package:rusty_river_project/model/covid_country.dart';
 import 'package:rusty_river_project/model/covid_global.dart';
 import 'package:rusty_river_project/service/covid_api.dart';
@@ -54,6 +56,14 @@ class _CovidStatisticState extends State<CovidStatistic> {
                 title: Text("${item.country}"),
                 subtitle: Text("All case : ${item.totalConfirmed}"),
                 trailing: Text("today case : ${item.newConfirmed}"),
+                onTap: () => {
+                  SmartDialog.showToast("You select ${item.country}"),
+                  SmartDialog.show(
+                      widget: ShowCountryInfo(country: item,),
+                      alignmentTemp: Alignment.bottomCenter,
+                      clickBgDismissTemp: true,
+                  )
+                },
                 style: ListTileStyle.drawer,
               );
             },
