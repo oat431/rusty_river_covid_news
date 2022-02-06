@@ -15,26 +15,27 @@ dependencies:
   http: ^0.13.4
   provider: ^6.0.2
   url_launcher: ^6.0.18
-  flutter_local_notifications: ^9.2.0
   custom_navigation_bar: ^0.8.2
-  animated_fab_button_menu: ^0.0.2
-  flutter_launcher_icons: ^0.9.2
+  flutter_swiper_plus: ^2.0.4
+  flutter_smart_dialog: ^3.3.7
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+  flutter_launcher_icons: ^0.9.2
 
 flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/icons/
   fonts:
     - family: Roboto
       fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: "assets/fonts/Roboto-Regular.ttf"
 flutter_icons:
   android: true
   ios: true
-  image_path: assets/icons/bacteria.png
+  image_path: "assets/icons/bacteria.png"

@@ -8,13 +8,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
-  animated_fab_button_menu:
-    dependency: "direct main"
-    description:
-      name: animated_fab_button_menu
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2"
   archive:
     dependency: transitive
     description:
@@ -126,7 +119,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_launcher_icons:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_launcher_icons
       url: "https://pub.dartlang.org"
@@ -160,6 +153,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0"
+  flutter_smart_dialog:
+    dependency: "direct main"
+    description:
+      name: flutter_smart_dialog
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.3.7"
+  flutter_swiper_plus:
+    dependency: "direct main"
+    description:
+      name: flutter_swiper_plus
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.4"
   flutter_test:
     dependency: "direct dev"
     description: flutter
