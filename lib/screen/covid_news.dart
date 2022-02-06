@@ -1,8 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rusty_river_project/model/covid_articles.dart';
-import 'package:rusty_river_project/service/covid_news_api.dart';
+import 'package:rusty_river_project/state/provider.dart';
 import 'package:rusty_river_project/widget/rr_card.dart';
 
 class CovidNews extends StatefulWidget {
@@ -14,29 +13,20 @@ class CovidNews extends StatefulWidget {
 
 class _CovidNewsState extends State<CovidNews> {
 
-  late final CovidNewsApi covidNewsApi = CovidNewsApi();
   late List<CovidArticles> covidArticles = [];
-
-  Future<List<CovidArticles>> getAllCovidArticle() async {
-    var response = await covidNewsApi.getCovidNews();
-    List res = json.decode(response.body)["articles"];
-    covidArticles = res
-        .map((covidArticles) => CovidArticles.fromJson(covidArticles))
-        .toList();
-    return covidArticles;
-  }
 
   @override
   void initState() {
     super.initState();
-    getAllCovidArticle();
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<CovidArticles>>(
-      future: getAllCovidArticle(),
+    var covidNewsPro = Provider.of<CovidNewsProvider>(context);
+    return FutureBuilder<List<CovidArticles>> (
+      future: covidNewsPro.getAllCovidArticle(),
       builder: (context, snapshot) {
+        covidArticles = covidNewsPro.getCovidArticles();
         if (snapshot.hasError) {
           return const Center(child: Text("Something wrong on our network."));
         } else if (snapshot.hasData) {
