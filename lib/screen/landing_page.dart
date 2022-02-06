@@ -49,15 +49,15 @@ class _LandingPageState extends State<LandingPage> {
         items: [
           CustomNavigationBarItem(
             icon: const Icon(Icons.home),
+            title: const Text("home"),
           ),
           CustomNavigationBarItem(
             icon: const Icon(Icons.analytics_outlined),
+            title: const Text("status"),
           ),
           CustomNavigationBarItem(
             icon: const Icon(Icons.web_asset_sharp),
-          ),
-          CustomNavigationBarItem(
-            icon: const Icon(Icons.info_outline),
+            title: const Text("news"),
           ),
         ],
         currentIndex: _currentIndex,
