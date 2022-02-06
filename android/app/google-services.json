@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "477249526729",
+    "project_id": "rusty-river-app",
+    "storage_bucket": "rusty-river-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477249526729:android:715a586229a3898709a618",
+        "android_client_info": {
+          "package_name": "com.example.rusty_river_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477249526729-kig4oqr4vkoiet9nsa7r4v54ugkr43u2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rusty_river_project",
+            "certificate_hash": "f0e19cd6bc52aac26da6190dc835f491dc725481"
+          }
+        },
+        {
+          "client_id": "477249526729-6qnr9dmsau5dfvn3q57m3o1g0sstf6r2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8qju5-80jbjD8XJDxhEicno9dmHvIi6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477249526729-6qnr9dmsau5dfvn3q57m3o1g0sstf6r2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
