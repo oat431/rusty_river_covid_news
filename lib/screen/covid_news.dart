@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rusty_river_project/model/covid_articles.dart';
 import 'package:rusty_river_project/service/covid_news_api.dart';
 import 'package:rusty_river_project/widget/rr_card.dart';
@@ -14,8 +13,6 @@ class CovidNews extends StatefulWidget {
 }
 
 class _CovidNewsState extends State<CovidNews> {
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
 
   late final CovidNewsApi covidNewsApi = CovidNewsApi();
   late List<CovidArticles> covidArticles = [];
