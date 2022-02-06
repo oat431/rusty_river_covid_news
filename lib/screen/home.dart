@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:rusty_river_project/component/rr_bottom_app_bar.dart';
 import 'package:rusty_river_project/model/covid_global.dart';
 import 'package:rusty_river_project/widget/rr_info_card.dart';
 
@@ -29,61 +28,55 @@ class _HomeState extends State<Home> {
     super.initState();
     getAllCovidStatus();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home Page"),
-      ),
-      body: FutureBuilder<CovidGlobal>(
-        future: getAllCovidStatus(),
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return const Center(child: Text("Something wrong on our network."));
-          } else if (snapshot.hasData) {
-            return Column(
-              children: [
-                Row(children: [
+    return FutureBuilder<CovidGlobal>(
+      future: getAllCovidStatus(),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return const Center(child: Text("Something wrong on our network."));
+        } else if (snapshot.hasData) {
+          return Column(
+            children: [
+              Row(
+                children: [
                   Expanded(
                     child: MyInfoBox(
                         color: Colors.green[600],
                         title: "Total Recovered",
                         subtitle: "${covidGlobal.totalRecovered}",
-                        detail: "New Recover Today : ${covidGlobal.newRecovered}"
+                        detail:
+                            "New Recover Today : ${covidGlobal.newRecovered}"),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  MyInfoBox(
+                    color: Colors.black38,
+                    title: "Total Death",
+                    subtitle: "${covidGlobal.totalDeaths}",
+                    detail: "New Death today ${covidGlobal.newDeaths}",
+                  ),
+                  Expanded(
+                    child: MyInfoBox(
+                      color: Colors.red[300],
+                      title: "Total Confirmed",
+                      subtitle: "${covidGlobal.totalConfirmed}",
+                      detail: "New case today ${covidGlobal.newConfirmed}",
                     ),
                   ),
                 ],
-                ),
-                Row(
-                  children: [
-                    MyInfoBox(
-                        color: Colors.black38,
-                        title: "Total Death",
-                        subtitle:"${covidGlobal.totalDeaths}" ,
-                        detail: "New Death today ${covidGlobal.newDeaths}",
-                    ),
-                    Expanded(
-                        child:MyInfoBox(
-                          color: Colors.red[300],
-                          title: "Total Confirmed",
-                          subtitle:"${covidGlobal.totalConfirmed}" ,
-                          detail: "New case today ${covidGlobal.newConfirmed}",
-                        )
-                    ),
-                  ],
-                )
-              ],
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+              )
+            ],
+          );
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
-      ) ,
-      bottomNavigationBar: const RustyRiverBottomBar(),
+      },
     );
   }
 }
-
-

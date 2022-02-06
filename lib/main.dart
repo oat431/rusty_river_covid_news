@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Rusty River Covid Notification',
       theme: ThemeData(
         primarySwatch: Colors.grey,
+        fontFamily: "Roboto"
       ),
       routes: AppRouter.initRouter() ,
       initialRoute: "/",

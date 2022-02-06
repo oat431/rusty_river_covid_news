@@ -11,12 +11,6 @@ class About extends StatefulWidget {
 class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("About Page"),
-      ),
-      body: Container(),
-      bottomNavigationBar: const RustyRiverBottomBar(),
-    );
+    return Container();
   }
 }
