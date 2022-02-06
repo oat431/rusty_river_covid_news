@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:rusty_river_project/component/rr_swiper.dart';
 import 'package:rusty_river_project/model/covid_global.dart';
 import 'package:rusty_river_project/widget/rr_info_card.dart';
 
@@ -68,6 +69,9 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ],
+              ),
+              const Expanded(
+                  child: RustyRiverSwiper()
               )
             ],
           );
