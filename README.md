@@ -1,8 +1,9 @@
 # rusty_river_project
-- notification
 - provider
-- url_launcher (maybe?)
+- url_launcher
 - http
+- flutter_swiper
+- flutter_smart_dialog
 
 ## team memebers 🌿
 | No. | Name | Student ID | Github Account |
