@@ -19,6 +19,7 @@ dependencies:
   flutter_swiper_plus: ^2.0.4
   flutter_smart_dialog: ^3.3.7
   cupertino_icons: ^1.0.2
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
